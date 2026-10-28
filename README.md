@@ -12,6 +12,53 @@ This portfolio case study documents a PostgreSQL analysis workflow for exploring
 
 The SQL is reusable, but **no original research dataset or verified numerical findings are published here**. You can provide your own approved CSV to run the project. An optional, explicitly **synthetic** seed dataset is included solely to test the SQL.
 
+## PostgreSQL 17 — Verified Local Analysis
+
+The SQL workflow was tested locally in PostgreSQL 17
+using a 199-record climate and agriculture dataset.
+
+### Data Quality
+| Metric | Result |
+|---|---:|
+| Total records | 199 |
+| Unique records | 199 |
+| Duplicate records | 0 |
+| Rows with NULL values | 0 |
+| Years covered | 1990–2024 |
+| Countries | 10 |
+| Crop types | 10 |
+
+### Descriptive Statistics
+| Indicator | Result |
+|---|---:|
+| Average temperature | 14.94 °C |
+| Average precipitation | 1,559.39 mm |
+| Average crop yield | 2.312 MT/ha |
+| Average irrigation access | 55.96% |
+
+### Pearson Correlations with Crop Yield
+| Variable | Pearson r |
+|---|---:|
+| Temperature | +0.240 |
+| Precipitation | +0.042 |
+| Irrigation access | -0.006 |
+
+### SQL Execution Verification
+- Q1: Descriptive statistics — Passed
+- Q2: Year-wise analysis — Passed
+- Q3: Crop-wise performance — Passed
+- Q9: Pearson correlation — Passed
+- Q10: Window function LAG() — Passed
+- Reusable analytical summary view — Passed
+- Summary groups: 196
+- Source records covered by the view: 199
+
+These are exploratory, dataset-specific findings,
+not causal conclusions or national estimates.
+
+The raw dataset is not distributed publicly pending
+verification of its source and sharing permissions.
+
 ## Analytical questions
 
 1. How do average crop yields and temperatures change year by year?
